@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8">Categories</h1>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Add New Category</h2>
+            <form id="addCategoryForm" class="space-y-4">
+                <div>
+                    <label for="amount" class="block text-lg">Amount:</label>
+                    <input type="number" id="amount" name="amount" step="0.01" required class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="type" class="block text-lg">Type:</label>
+                    <select id="type" name="type" required class="w-full p-2 border border-gray-300 rounded-md">
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="description" class="block text-lg">Description:</label>
+                    <input type="text" id="description" name="description" class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="date" class="block text-lg">Date:</label>
+                    <input type="date" id="date" name="date" required class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <input type="submit" value="Add Category" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                </div>
+            </form>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Search Categories by Date Range</h2>
+            <form id="searchCategoryForm" class="space-y-4">
+                <div>
+                    <label for="startDate" class="block text-lg">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" required class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="endDate" class="block text-lg">End Date:</label>
+                    <input type="date" id="endDate" name="endDate" required class="w-full p-2 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <input type="submit" value="Search" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+                </div>
+            </form>
+        </div>
+        
+        <h2 class="text-2xl font-semibold mb-4">All Categories</h2>
+        <table class="min-w-full bg-white rounded-lg shadow-md">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b-2 border-gray-300">ID</th>
+                    <th class="px-4 py-2 border-b-2 border-gray-300">Amount</th>
+                    <th class="px-4 py-2 border-b-2 border-gray-300">Type</th>
+                    <th class="px-4 py-2 border-b-2 border-gray-300">Description</th>
+                    <th class="px-4 py-2 border-b-2 border-gray-300">Date</th>
+                </tr>
+            </thead>
+            <tbody id="categoriesTableBody" class="divide-y divide-gray-200">
+            </tbody>
+        </table>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
